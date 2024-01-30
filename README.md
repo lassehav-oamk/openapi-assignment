@@ -16,10 +16,10 @@ One customer should have the following information:
 - companyName : string (Customer company name)
 - companyAddress: string (Company address)
 - contactPerson (object with the following properties)
--- name : string
--- phoneNumber : string
--- email : string
--- role : string (Role of the contact person)
+  - name : string
+  - phoneNumber : string
+  - email : string
+  - role : string (Role of the contact person)
 
 Your specification must include the following paths:
 
