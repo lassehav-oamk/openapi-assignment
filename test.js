@@ -77,6 +77,7 @@ describe('OpenAPI Specification Validation', () => {
 
     const responseBody = paths[targetOperation.path][targetOperation.method.toLowerCase()].responses['200'];
     const bodyContent = responseBody.content;
+    console.log(responseBody);
     const bodyContentApplicationJson = bodyContent['application/json'];
     const bodyContentApplicationJsonSchema = bodyContentApplicationJson.schema;
     if(bodyContentApplicationJsonSchema.$ref === '#/components/schemas/Customer') {
@@ -109,12 +110,18 @@ describe('OpenAPI Specification Validation', () => {
 
   test('check DELETE /customers/{id} specifies a path parameter named id', async () => {
     const paths = apiSpec.paths;
-    const targetOperation = { method: 'DELETE', path: '/customers/{id}' };
-
-    const parameters = paths[targetOperation.path][targetOperation.method.toLowerCase()].parameters;
-    const result = parameters[0].name === 'id';
-
-    expect(result).toBeTruthy(); // Assert that the operation has a request body
+    const targetPath = '/customers/{id}';
+  
+    // Retrieve parameters defined at the path level
+    const pathParameters = paths[targetPath].parameters || [];
+  
+    // Check if a parameter named 'id' with 'in: path' exists
+    const hasPathParameter = pathParameters.some(
+      (param) => param.name === 'id' && param.in === 'path'
+    );
+  
+    // Assert that the path parameter is defined
+    expect(hasPathParameter).toBeTruthy();
   });
 
 });
