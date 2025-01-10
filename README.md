@@ -1,7 +1,9 @@
 # OpenAPI Assingment Exercise
 
 The objective is to familiarize yourself with the OpenAPI specification. You can 
-write the specification with any editor you like. The specification must be place inside this folder with name openapidesign.json. You must use the OpenAPI 3.0 specification and JSON format.
+write the specification with any editor you like. You must use the OpenAPI 3.0 specification and JSON format.
+
+**Your specification must be placed inside the root folder of this repository with name openapidesign.json**
 
 ## Specification
 
@@ -48,5 +50,5 @@ npm run test
 ```
 
 ## Submission
-Commit and push your work to your Github Classroom repository. 
+Commit to add your openapidesign.json file to repository and push your work to your Github Classroom repository. 
 
