@@ -8,14 +8,14 @@ write the specification with any editor you like. You must use the OpenAPI 3.0 s
 ## Specification
 
 On a high level, the specification must describe a REST API for a simple
-customer management system. 
+user management system. 
 
-The api should offer resources to get information on all customers, get information on a specific customer, modify an existing customer and to delete an customer.  
+The api should offer resources to get information on all users, get information on a specific user, modify an existing user and to delete an user.  
 
-One customer should have the following information: 
+One user should have the following information: 
 
 - id (unique identifier, number)
-- companyName : string (Customer company name)
+- companyName : string (User company name)
 - companyAddress: string (Company address)
 - contactPerson (object with the following properties)
   - name : string
@@ -25,14 +25,14 @@ One customer should have the following information:
 
 Your specification must include the following paths:
 
-- GET /customers (returns a list of all customers)
-- GET /customers/{id} (returns a specific customer)
-- PUT /customers/{id} (modifies a specific customer, returns only a status code 200)
-- DELETE /customers/{id} (deletes a specific customer, returns only a status code 200)
+- GET /users (returns a list of all users)
+- GET /users/{id} (returns a specific user)
+- PUT /users/{id} (modifies a specific user, returns only a status code 200)
+- DELETE /users/{id} (deletes a specific user, returns only a status code 200)
 
-The {id} parameter is a placeholder for the customer id and should be specified as a path parameter. 
+The {id} parameter is a placeholder for the user id and should be specified as a path parameter. 
 
-The specification must also include a definition for the customer object as schema component named Customer. The Customer schema must be referenced in the paths above.
+The specification must also include a definition for the user object as schema component named User. The User schema must be referenced in the paths above.
 
 ## Installation
 
