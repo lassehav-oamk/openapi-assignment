@@ -17,11 +17,10 @@ One user should have the following information:
 - id (unique identifier, number)
 - companyName : string (User company name)
 - companyAddress: string (Company address)
-- contactPerson (object with the following properties)
+- emergencyContactPerson (object with the following properties)
   - name : string
   - phoneNumber : string
-  - email : string
-  - role : string (Role of the contact person)
+  - email : string  
 
 Your specification must include the following paths:
 
