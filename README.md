@@ -15,8 +15,8 @@ The api should offer resources to get information on all users, get information 
 One user should have the following information: 
 
 - id (unique identifier, number)
-- companyName : string (User company name)
-- companyAddress: string (Company address)
+- name : string
+- address: string 
 - emergencyContactPerson (object with the following properties)
   - name : string
   - phoneNumber : string
@@ -24,10 +24,18 @@ One user should have the following information:
 
 Your specification must include the following paths:
 
-- GET /users (returns a list of all users)
-- GET /users/{id} (returns a specific user)
-- PUT /users/{id} (modifies a specific user, returns only a status code 200)
-- DELETE /users/{id} (deletes a specific user, returns only a status code 200)
+- **GET /users**  
+  **Description:** Returns an object containing a property `users`, which is an array containing all users.
+
+- **GET /users/{id}**  
+  **Description:** Returns a specific user.
+
+- **PUT /users/{id}**  
+  **Description:** Modifies a specific user and returns a status code `200`.
+
+- **DELETE /users/{id}**  
+  **Description:** Deletes a specific user and returns a status code `200`.
+
 
 The {id} parameter is a placeholder for the user id and should be specified as a path parameter. 
 

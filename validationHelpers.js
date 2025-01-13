@@ -109,19 +109,18 @@ function checkResponseBodyIsAnArray(paths, targetOperation) {
   }
 }
 
-function verifyCustomerSchema(schemas) {
-  const customerSchema = schemas.Customer;
-  const customerSchemaProperties = customerSchema.properties;
-  const customerSchemaPropertiesContactPerson = customerSchemaProperties.contactPerson;
+function verifyUserSchema(schemas) {
+  const userSchema = schemas.User;
+  const userSchemaProperties = userSchema.properties;
+  const userSchemaPropertiesContactPerson = userSchemaProperties.emergencyContactPerson
 
-  const customerSchemaPropertiesContactPersonProperties = customerSchemaPropertiesContactPerson.properties;
-  const result = customerSchemaProperties.id &&
-    customerSchemaProperties.companyName &&
-    customerSchemaProperties.companyAddress &&
-    customerSchemaPropertiesContactPersonProperties.name &&
-    customerSchemaPropertiesContactPersonProperties.phoneNumber &&
-    customerSchemaPropertiesContactPersonProperties.email &&
-    customerSchemaPropertiesContactPersonProperties.role;
+  const userSchemaPropertiesEmergencyContactPersonProperties = userSchemaPropertiesContactPerson.properties;
+  const result = userSchemaProperties.id &&
+    userSchemaProperties.name
+    userSchemaProperties.address
+    userSchemaPropertiesEmergencyContactPersonProperties.name &&
+    userSchemaPropertiesEmergencyContactPersonProperties.phoneNumber &&
+    userSchemaPropertiesEmergencyContactPersonProperties.email;   
   return result;
 }
 
@@ -134,5 +133,5 @@ module.exports = {
   checkRequestBodyProperties,
   checkResponseBodyProperties,
   checkResponseBodyIsAnArray,
-  verifyCustomerSchema
+  verifyUserSchema
 };
