@@ -6,6 +6,7 @@ const {
   checkRequestBodyProperties,
   checkResponseBodyProperties, 
   checkResponseBodyIsAnArray,
+  checkResponseBodyIsAnObject,
   verifyUserSchema
 
 } = require('./validationHelpers'); 
@@ -35,11 +36,14 @@ describe('OpenAPI Specification Validation', () => {
     expect(result).toBeTruthy(); // Assert that the operation has a response body
   });
 
-  test('Check that operation GET /users response body is an array', async () => {
+  test('Check that operation GET /users response body is an object', async () => {
     const paths = apiSpec.paths;
-    const result = checkResponseBodyIsAnArray(paths, { method: 'GET', path: '/users' });
+    result = checkResponseBodyExists(paths, { method: 'GET', path: '/users' });
 
     expect(result).toBeTruthy(); // Assert that the operation has a response body
+
+    const objectCheckResult = checkResponseBodyIsAnObject(paths, { method: 'GET', path: '/users' });
+    expect(objectCheckResult).toBeTruthy();
   });
 
   test('Check that the document includes a schema object for User', async () => {

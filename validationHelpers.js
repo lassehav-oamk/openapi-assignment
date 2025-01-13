@@ -109,6 +109,28 @@ function checkResponseBodyIsAnArray(paths, targetOperation) {
   }
 }
 
+function checkResponseBodyIsAnObject(paths, targetOperation) {
+  // Check if the specified operation has a response body
+  if (checkResponseBodyExists(paths, targetOperation)) {
+    const responseBody = paths[targetOperation.path][targetOperation.method.toLowerCase()].responses['200'];
+    const bodyContent = responseBody.content;
+    const bodyContentApplicationJson = bodyContent['application/json'];
+    const bodyContentApplicationJsonSchema = bodyContentApplicationJson.schema;
+    const bodyContentApplicationJsonSchemaType = bodyContentApplicationJsonSchema.type;
+
+    // Check if the response body is an object
+    if (bodyContentApplicationJsonSchemaType === 'object') {
+      console.log(`Operation ${targetOperation.method} ${targetOperation.path} has a response body that is an object.`);
+      return true;
+    } else {
+      console.log(`Operation ${targetOperation.method} ${targetOperation.path} does not have a response body that is an object.`);
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
 function verifyUserSchema(schemas) {
   const userSchema = schemas.User;
   const userSchemaProperties = userSchema.properties;
@@ -133,5 +155,6 @@ module.exports = {
   checkRequestBodyProperties,
   checkResponseBodyProperties,
   checkResponseBodyIsAnArray,
+  checkResponseBodyIsAnObject,
   verifyUserSchema
 };
